@@ -79,6 +79,13 @@ class Camera
 		this.anchorY = anchorY;
 	}
 
+	public function unanchor()
+	{
+		anchorTarget = null;
+		this.anchorX = 0;
+		this.anchorY = 0;
+	}
+
 	public function onCamera(entity:Entity):Bool
 	{
 		return entity.collideRect(entity.x, entity.y, x, y, HXP.width, HXP.height);
