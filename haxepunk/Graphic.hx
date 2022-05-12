@@ -102,7 +102,7 @@ class Graphic
 	/**
 	 * Newly created graphics will have this `smooth` setting by default.
 	 */
-	public static var smoothDefault:Bool = true;
+	public static var smoothDefault:Bool = false;
 
 	/**
 	 * Newly created graphics will have this `pixelSnapping` setting by default,
