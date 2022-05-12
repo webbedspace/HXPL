@@ -12,6 +12,12 @@ HaxePunk is a powerful cross-platform 2D game engine, based on the [FlashPunk](h
 * Hardware acceleration and texture atlas support
 * Gamepad and multi-touch input
 
+## Notes about this updated version
+
+This is my personal copy of HaxePunk that I've updated to work with the most recent versions of Haxe, OpenFL, and Lime. At the time of this writing, those are Haxe 4.2.5, OpenFL 9.1.0, and Lime 7.9.0. I do not actively work on this fork outside of what is necessary for my private use, and should not be considered its maintainer. I'm simply sharing this for anyone who would might find it useful.
+
+The official HaxePunk website is currently offline, but an archived version of its documentation page can be found [here](https://web.archive.org/web/20220127215829/http://haxepunk.com/documentation/). I've also mirrored the official API [here](https://haxepunkdocs.netlify.app/).
+
 ## Release build
 
 First, make sure you have [Haxe](http://haxe.org) 3.0 or higher, we recommend you to update to Haxe 3.2 if you haven't already. Then execute the following commands below to get started with your first HaxePunk project.
