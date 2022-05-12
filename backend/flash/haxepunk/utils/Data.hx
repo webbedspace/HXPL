@@ -25,6 +25,15 @@ class Data
 		for (str in Reflect.fields(data)) _data.set(str, Reflect.field(data, str));
 	}
 
+    public static function exists(file:String = "")
+    {
+		var data:Dynamic = loadData(file);
+		for(str in Reflect.fields(data)) {
+            return true;
+        }
+        return false;
+    }
+
 	/**
 	 * Overwrites the file with the current data. The current data will not be saved until this function is called.
 	 * @param	file		The filename to save.
@@ -45,6 +54,12 @@ class Data
 		_shared.flush(SIZE);
 #end
 	}
+
+    public static function clear(file:String = "")
+    {
+        _data = new Map<String, Dynamic>();
+        save(file);
+    }
 
 	/**
 	 * Reads an int from the current data.
@@ -118,3 +133,4 @@ class Data
 	static inline var DEFAULT_FILE:String = "_file";
 	static inline var SIZE:Int = 10000;
 }
+
