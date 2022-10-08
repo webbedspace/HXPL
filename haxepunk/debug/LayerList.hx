@@ -14,7 +14,7 @@ private class LayerToggle extends Entity
 	public function new(mouseManager:MouseManager)
 	{
 		super();
-		label = new BitmapText("Layer", {size: 12});
+		label = new BitmapText("Layer", {size: 12, font: "font/monofonto.fnt"});
 		label.alpha = 0.75;
 		addGraphic(label);
 		width = 220;
@@ -64,7 +64,7 @@ class LayerList extends EntityList<LayerToggle>
 		width = 240;
 		height = 320;
 
-		sceneLabel = new BitmapText("Scene", {size: 12});
+		sceneLabel = new BitmapText("Scene", {size: 12, font: "font/monofonto.fnt"});
 		sceneLabel.x = 10;
 		sceneLabel.y = childY;
 		childY += sceneLabel.textHeight;

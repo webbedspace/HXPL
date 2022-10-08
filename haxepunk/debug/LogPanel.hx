@@ -21,7 +21,7 @@ class LogPanel extends Entity
 	public function new(mouseManager:MouseManager)
 	{
 		super();
-		label = new BitmapText("Mouse");
+		label = new BitmapText("Mouse", {font: "font/monofonto.fnt"});
 		label.x = 8;
 		addGraphic(label);
 		height = 48;

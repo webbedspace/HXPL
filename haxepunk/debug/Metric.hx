@@ -26,7 +26,7 @@ class Metric<T:Float> extends Entity
 		this.color = color;
 		this.minScale = minScale;
 
-		label = new BitmapText(name, {size: 12});
+		label = new BitmapText(name, {size: 12, font: "font/monofonto.fnt"});
 		label.x = label.y = 4;
 		addGraphic(label);
 
