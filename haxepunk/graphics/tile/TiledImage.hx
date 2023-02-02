@@ -2,7 +2,7 @@ package haxepunk.graphics.tile;
 
 import haxepunk.math.Rect;
 import haxepunk.Graphic.ImageType;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * Special Image object that can display blocks of tiles.
@@ -28,7 +28,7 @@ class TiledImage extends Image
 
 	/** Renders the image. */
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		// determine drawing location
 		_point.x = point.x + x - originX - camera.x * scrollX;
@@ -56,7 +56,7 @@ class TiledImage extends Image
 		}
 	}
 
-	override public function pixelPerfectRender(point:Vector2, camera:Camera)
+	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		// determine drawing location
 		var fsx = camera.screenScaleX,

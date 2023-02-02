@@ -6,7 +6,7 @@ import haxepunk.Signal.Signal0;
 import haxepunk.ds.OneOf;
 import haxepunk.graphics.Graphiclist;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 typedef SolidType = OneOf<String, Array<String>>;
 
@@ -966,5 +966,5 @@ class Entity extends Tweener
 	var _moveY:Float = 0;
 
 	static var _EMPTY:Entity = new Entity();
-	static var _point:Vector2 = new Vector2();
+	static var _point:XY = new XY();
 }

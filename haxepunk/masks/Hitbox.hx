@@ -3,7 +3,7 @@ package haxepunk.masks;
 import haxepunk.Mask;
 import haxepunk.utils.Draw;
 import haxepunk.math.Projection;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /** Uses parent's hitbox to determine collision.
  * This class is used internally by HaxePunk, you don't need to use this class because
@@ -144,7 +144,7 @@ class Hitbox extends Mask
 	}
 
 	@:dox(hide)
-	override public function project(axis:Vector2, projection:Projection):Void
+	override public function project(axis:XY, projection:Projection):Void
 	{
 		var px = _x;
 		var py = _y;

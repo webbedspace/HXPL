@@ -3,7 +3,7 @@ package haxepunk.graphics.tile;
 import haxepunk.graphics.atlas.IAtlasRegion;
 import haxepunk.HXP;
 import haxepunk.Graphic;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * A background texture that can be repeated horizontally and vertically
@@ -56,7 +56,7 @@ class Backdrop extends Graphic
 	}
 
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		_point.x = (point.x - camera.x * scrollX + x) * camera.screenScaleX - originX * scaleX * scale;
 		_point.y = (point.y - camera.y * scrollY + y) * camera.screenScaleY - originY * scaleY * scale;
@@ -97,7 +97,7 @@ class Backdrop extends Graphic
 	}
 
 	@:dox(hide)
-	override public function pixelPerfectRender(point:Vector2, camera:Camera)
+	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		var fsx = camera.screenScaleX,
 			fsy = camera.screenScaleY,

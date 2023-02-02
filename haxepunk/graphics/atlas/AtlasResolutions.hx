@@ -3,7 +3,7 @@ package haxepunk.graphics.atlas;
 import haxepunk.utils.BlendMode;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.Color;
 
 /**
@@ -118,7 +118,7 @@ class AtlasResolutions implements IAtlasRegion
 		);
 	}
 
-	public function clip(clipRect:Rect, ?center:Vector2):IAtlasRegion
+	public function clip(clipRect:Rect, ?center:XY):IAtlasRegion
 	{
 		var clippedRegions:Array<AtlasRegion> = new Array();
 		clippedRegions.push(base.clip(clipRect, center));
@@ -159,5 +159,5 @@ class AtlasResolutions implements IAtlasRegion
 	}
 
 	static var _rect:Rect = new Rect();
-	static var _point:Vector2 = new Vector2();
+	static var _point:XY = new XY();
 }

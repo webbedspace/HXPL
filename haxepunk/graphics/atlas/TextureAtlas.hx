@@ -9,7 +9,7 @@ import haxepunk.assets.AssetCache;
 import haxepunk.assets.AssetLoader;
 import haxepunk.graphics.atlas.AtlasData;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 using StringTools;
 
 class TextureAtlas extends Atlas
@@ -91,7 +91,7 @@ class TextureAtlas extends Atlas
 	 *
 	 * @return	The new AtlasRegion object.
 	 */
-	public function defineRegion(name:String, rect:Rect, ?center:Vector2, ?page:String):AtlasRegion
+	public function defineRegion(name:String, rect:Rect, ?center:XY, ?page:String):AtlasRegion
 	{
 		var data = _pages == null ? this._data : _pages.get(page);
 		var region = data.createRegion(rect, center);

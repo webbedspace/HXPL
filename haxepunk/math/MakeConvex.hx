@@ -112,11 +112,11 @@ class MakeConvex
 // Convenience type with overloaded operations
 // R is for Reentrant
 @:forward
-abstract Point(Vector2) from Vector2 to Vector2
+abstract Point(XY) from XY to XY
 {
 	public function new(x:Float = 0., y:Float = 0.)
 	{
-		this = new Vector2(x, y);
+		this = new XY(x, y);
 	}
 
 	@:from public static function fromStruct(v:{x:Float, y:Float}):Point

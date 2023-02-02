@@ -12,7 +12,7 @@ import haxepunk.graphics.hardware.Texture;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.graphics.shader.TextureShader;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
 
@@ -289,7 +289,7 @@ class Graphic
 	 * @param  camera     The camera offset.
 	 */
 	@:dox(hide)
-	public function doRender(point:Vector2, camera:Camera)
+	public function doRender(point:XY, camera:Camera)
 	{
 		if (isPixelPerfect(camera)) pixelPerfectRender(point, camera);
 		else render(point, camera);
@@ -301,7 +301,7 @@ class Graphic
 	 * @param  camera     The camera offset.
 	 */
 	@:dox(hide)
-	public function render(point:Vector2, camera:Camera) {}
+	public function render(point:XY, camera:Camera) {}
 
 	/**
 	 * Renders the graphic, taking extra care to snap pixel locations and
@@ -311,7 +311,7 @@ class Graphic
 	 * @param  point      The position to draw the graphic.
 	 * @param  camera     The camera offset.
 	 */
-	public function pixelPerfectRender(point:Vector2, camera:Camera) render(point, camera);
+	public function pixelPerfectRender(point:XY, camera:Camera) render(point, camera);
 
 	/**
 	 * Pause updating this graphic.
@@ -339,6 +339,6 @@ class Graphic
 	var _class:String;
 	// Graphic information.
 	var _scroll:Bool = true;
-	var _point:Vector2 = new Vector2();
+	var _point:XY = new XY();
 	var _visible:Bool = true;
 }

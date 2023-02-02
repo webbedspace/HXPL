@@ -4,7 +4,7 @@ import haxepunk.math.Rect;
 import haxepunk.Graphic;
 import haxepunk.graphics.atlas.TileAtlas;
 import haxepunk.masks.Grid;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * A rendered grid of tiles.
@@ -368,7 +368,7 @@ class Tilemap extends Graphic
 	}
 
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		var fullScaleX:Float = camera.screenScaleX,
 			fullScaleY:Float = camera.screenScaleY;
@@ -422,7 +422,7 @@ class Tilemap extends Graphic
 	}
 
 	@:dox(hide)
-	override public function pixelPerfectRender(point:Vector2, camera:Camera)
+	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		var fullScaleX:Float = camera.screenScaleX,
 			fullScaleY:Float = camera.screenScaleY;

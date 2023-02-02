@@ -3,7 +3,7 @@ package haxepunk.graphics.atlas;
 import haxepunk.utils.BlendMode;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.Color;
 
 interface IAtlasRegion
@@ -22,5 +22,5 @@ interface IAtlasRegion
 		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect,
 		flexibleLayer:Bool=false):Void;
 
-	public function clip(clipRect:Rect, ?center:Vector2):IAtlasRegion;
+	public function clip(clipRect:Rect, ?center:XY):IAtlasRegion;
 }

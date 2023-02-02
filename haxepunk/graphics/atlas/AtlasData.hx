@@ -6,7 +6,7 @@ import haxepunk.graphics.hardware.DrawCommandBatch;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
 
@@ -61,7 +61,7 @@ class AtlasData
 	 *
 	 * @return The new AtlasRegion object.
 	 */
-	public inline function createRegion(rect:Rect, ?center:Vector2):AtlasRegion
+	public inline function createRegion(rect:Rect, ?center:XY):AtlasRegion
 	{
 		return new AtlasRegion(this, rect.clone());
 	}

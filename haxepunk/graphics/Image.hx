@@ -8,7 +8,7 @@ import haxepunk.graphics.hardware.Texture;
 import haxepunk.utils.Color;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * Performance-optimized non-animated image. Can be drawn to the screen with transformations.
@@ -89,7 +89,7 @@ class Image extends Graphic
 	}
 
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		var sx = scale * scaleX * (flipX ? -1 : 1),
 			sy = scale * scaleY * (flipY ? -1 : 1),

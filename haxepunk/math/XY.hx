@@ -20,7 +20,7 @@ private typedef PositionObj =
  * All functions are reentrant.
  */
 @:forward
-abstract Vector2(Position) from Position to Position
+abstract XY(Position) from Position to Position
 {
 	public inline function new(x:Float = 0, y:Float = 0)
 	{
@@ -29,7 +29,7 @@ abstract Vector2(Position) from Position to Position
 	
 	@:dox(hide) @:from public static inline function fromObj(obj:PositionObj)
 	{
-		return new Vector2(obj.x, obj.y);
+		return new XY(obj.x, obj.y);
 	}
 
 	/**
@@ -46,7 +46,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Sets the internal x, y values.
 	 **/
-	public inline function setTo(x:Float, y:Float):Vector2
+	public inline function setTo(x:Float, y:Float):XY
 	{
 		this.x = x;
 		this.y = y;
@@ -56,7 +56,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Converts this vector to it's perpendicular counterpart.
 	 **/
-	public inline function perpendicular():Vector2
+	public inline function perpendicular():XY
 	{
 		setTo(-this.y, this.x);
 		return this;
@@ -65,7 +65,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Inverts (negates) the vector contents.
 	 **/
-	public inline function inverse():Vector2
+	public inline function inverse():XY
 	{
 		this.x = -this.x;
 		this.y = -this.y;
@@ -76,7 +76,7 @@ abstract Vector2(Position) from Position to Position
 	 * Returns a new vector which is this vector negated.
 	 **/
 	@:op(-a)
-	public inline function neg():Vector2
+	public inline function neg():XY
 	{
 		return clone().inverse();
 	}
@@ -85,7 +85,7 @@ abstract Vector2(Position) from Position to Position
 	 * Copies the values from one vector into this one.
 	 * @param other  The vector to copy from
 	 **/
-	public inline function copyFrom(other:Vector2):Vector2
+	public inline function copyFrom(other:XY):XY
 	{
 		this.x = other.x;
 		this.y = other.y;
@@ -95,7 +95,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Scales the vector by a single value.
 	 **/
-	public inline function scale(scalar:Float):Vector2
+	public inline function scale(scalar:Float):XY
 	{
 		this.x *= scalar;
 		this.y *= scalar;
@@ -107,7 +107,7 @@ abstract Vector2(Position) from Position to Position
 	 * by the given amount.
 	 **/
 	@:op(a*b) @:commutative
-	public inline function mult(scalar:Float):Vector2
+	public inline function mult(scalar:Float):XY
 	{
 		return clone().scale(scalar);
 	}
@@ -117,7 +117,7 @@ abstract Vector2(Position) from Position to Position
 	 * by the inverse of the given amount.
 	 **/
 	@:op(a/b)
-	public inline function div(scalar:Float):Vector2
+	public inline function div(scalar:Float):XY
 	{
 		return clone().scale(1 / scalar);
 	}
@@ -125,7 +125,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Adds a vector to this vector in-place.
 	 */
-	public inline function add(other:Vector2):Vector2
+	public inline function add(other:XY):XY
 	{
 		this.x += other.x;
 		this.y += other.y;
@@ -137,7 +137,7 @@ abstract Vector2(Position) from Position to Position
 	 * this vector and another vector.
 	 **/
 	@:op(a+b)
-	public inline function plus(other:Vector2):Vector2
+	public inline function plus(other:XY):XY
 	{
 		return clone().add(other);
 	}
@@ -145,7 +145,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Subtracts a vector to this vector in-place.
 	 */
-	public inline function subtract(other:Vector2):Vector2
+	public inline function subtract(other:XY):XY
 	{
 		this.x -= other.x;
 		this.y -= other.y;
@@ -157,7 +157,7 @@ abstract Vector2(Position) from Position to Position
 	 * another vector from this vector.
 	 **/
 	@:op(a-b)
-	public inline function minus(other:Vector2):Vector2
+	public inline function minus(other:XY):XY
 	{
 		return clone().subtract(other);
 	}
@@ -167,7 +167,7 @@ abstract Vector2(Position) from Position to Position
 	 * @param other  The other point to use for distance calculation
 	 * @returns The distance between the two points
 	 **/
-	public inline function distance(other:Vector2):Float
+	public inline function distance(other:XY):Float
 	{
 		var dx = this.x - other.x;
 		var dy = this.y - other.y;
@@ -178,7 +178,7 @@ abstract Vector2(Position) from Position to Position
 	 * Normalizes the vector to a set length.
 	 * @param size  The length of the resulting vector. Default: unit length (1)
 	 **/
-	public inline function normalize(size:Float=1):Vector2
+	public inline function normalize(size:Float=1):XY
 	{
 		if (!(this.x == 0 && this.y == 0))
 		{
@@ -193,7 +193,7 @@ abstract Vector2(Position) from Position to Position
 	 * Rotates the vector around an angle in-place.
 	 * @param angle  The angle, in radians to rotate around (clockwise)
 	 **/
-	public inline function rotate(angle:Float):Vector2
+	public inline function rotate(angle:Float):XY
 	{
 		var sin = Math.sin(angle);
 		var cos = Math.cos(angle);
@@ -206,7 +206,7 @@ abstract Vector2(Position) from Position to Position
 	 * by the given angle.
 	 * @param angle  The angle, in radians to rotate around (clockwise)
 	 */
-	public inline function rotated(angle:Float):Vector2
+	public inline function rotated(angle:Float):XY
 	{
 		return clone().rotate(angle);
 	}
@@ -214,7 +214,7 @@ abstract Vector2(Position) from Position to Position
 	/**
 	 * Can be used to determine if an angle between two vectors is acute or obtuse.
 	 */
-	public inline function dot(other:Vector2):Float
+	public inline function dot(other:XY):Float
 	{
 		return (this.x * other.x) + (this.y * other.y);
 	}
@@ -223,13 +223,13 @@ abstract Vector2(Position) from Position to Position
 	 * This is the same as a 3D cross product but only returns the z value because x and y are 0.
 	 * Can be used to determine if and angle between two vectors is greater than 180 degrees.
 	 */
-	public inline function zcross(other:Vector2):Float
+	public inline function zcross(other:XY):Float
 	{
 		return (this.x * other.y) - (this.y * other.x);
 	}
 
-	public inline function clone():Vector2
+	public inline function clone():XY
 	{
-		return new Vector2(this.x, this.y);
+		return new XY(this.x, this.y);
 	}
 }

@@ -1,7 +1,7 @@
 package haxepunk.debug;
 
 import haxepunk.utils.BlendMode;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.math.Rect;
 import haxepunk.HXP;
 import haxepunk.cameras.UICamera;
@@ -78,7 +78,7 @@ class Console extends Scene
 	var _dc:Float = 0;
 	var _t:Float = 0;
 
-	var click:Vector2 = new Vector2();
+	var click:XY = new XY();
 	var selBox:Rect = new Rect();
 	var clickActive:Bool = false;
 	var dragging:Bool = false;

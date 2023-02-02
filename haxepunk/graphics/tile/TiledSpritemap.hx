@@ -1,7 +1,7 @@
 package haxepunk.graphics.tile;
 
 import haxepunk.Graphic.TileType;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * Special Spritemap object that can display blocks of animated sprites.
@@ -27,7 +27,7 @@ class TiledSpritemap extends Spritemap
 
 	/** Renders the image. */
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		// determine drawing location
 		_point.x = point.x + x - originX - camera.x * scrollX;
@@ -57,7 +57,7 @@ class TiledSpritemap extends Spritemap
 
 	/** Renders the image. */
 	@:dox(hide)
-	override public function pixelPerfectRender(point:Vector2, camera:Camera)
+	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		// determine drawing location
 		_point.x = point.x + floorX(camera, x - originX) - floorX(camera, camera.x * scrollX);

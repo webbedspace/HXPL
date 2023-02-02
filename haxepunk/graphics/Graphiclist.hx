@@ -3,7 +3,7 @@ package haxepunk.graphics;
 import haxepunk.HXP;
 import haxepunk.Graphic;
 import haxepunk.utils.Color;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * A Graphic that can contain multiple Graphics of one or various types.
@@ -77,7 +77,7 @@ typedef Graphiclist = BaseGraphicList<Graphic>;
 	}
 
 	/** @private Renders the Graphics in the list. */
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		var cx = camera.x,
 			cy = camera.y;

@@ -4,7 +4,7 @@ import haxepunk.Entity;
 import haxepunk.masks.Masklist;
 import haxepunk.utils.DrawContext;
 import haxepunk.math.Projection;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 /**
  * Base class for Entity collision masks.
@@ -97,7 +97,7 @@ class Mask
 	public function update() {}
 
 	@:dox(hide)
-	public function project(axis:Vector2, projection:Projection):Void
+	public function project(axis:XY, projection:Projection):Void
 	{
 		var cur:Float,
 			max:Float = Math.NEGATIVE_INFINITY,

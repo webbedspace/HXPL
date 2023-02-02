@@ -7,7 +7,7 @@ import haxepunk.utils.Color;
 import haxepunk.utils.Ease.EaseFunction;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Random;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 @:generic class BaseEmitter<T:Graphic> extends Graphic
 {
@@ -28,7 +28,7 @@ import haxepunk.math.Vector2;
 		particleCount = 0;
 	}
 
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		var p:Particle = _particle;
 

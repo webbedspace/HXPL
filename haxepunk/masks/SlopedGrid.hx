@@ -4,7 +4,7 @@ import haxepunk.HXP;
 import haxepunk.Mask;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 @:enum
 abstract TileShape(Int)
@@ -523,8 +523,8 @@ class SlopedGrid extends Hitbox
 	// Grid information.
 	var _tile:Rect;
 	var _rect:Rect;
-	var _point:Vector2;
-	var _point2:Vector2;
+	var _point:XY;
+	var _point2:XY;
 
 	static var _emptyTile:Tile = { type: Empty }; // prevent recreation of empty tile
 }

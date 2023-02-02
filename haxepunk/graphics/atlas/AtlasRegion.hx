@@ -5,7 +5,7 @@ import haxepunk.utils.Color;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 class AtlasRegion implements IAtlasRegion
 {
@@ -43,7 +43,7 @@ class AtlasRegion implements IAtlasRegion
 	 * @param	center		The new center point
 	 * @return	A new atlas region with the clipped coordinates
 	 */
-	public function clip(clipRect:Rect, ?center:Vector2):AtlasRegion
+	public function clip(clipRect:Rect, ?center:XY):AtlasRegion
 	{
 		// make a copy of clipRect, to avoid modifying the original
 		var clipRectCopy = clipRect.clone();

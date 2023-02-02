@@ -5,7 +5,7 @@ import haxepunk.Graphic;
 import haxepunk.assets.AssetCache;
 import haxepunk.graphics.text.BitmapFontAtlas.BitmapFontFormat;
 import haxepunk.graphics.text.IBitmapFont.BitmapFontType;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.Color;
 import haxepunk.utils.Utf8String;
 using haxepunk.HXP;
@@ -657,7 +657,7 @@ class BitmapText extends Graphic
 	}
 
 	@:dox(hide)
-	override public function render(point:Vector2, camera:Camera)
+	override public function render(point:XY, camera:Camera)
 	{
 		if (_dirty) parseText();
 		HXP.clear(_customStack);

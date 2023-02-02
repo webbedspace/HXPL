@@ -5,7 +5,7 @@ import haxepunk.HXP;
 import haxepunk.assets.AssetCache;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 
 abstract PixelmaskSource(Texture) from Texture to Texture
 {
@@ -168,6 +168,6 @@ class Pixelmask extends Hitbox
 
 	// Global objects.
 	var _rect:Rect;
-	var _point:Vector2;
-	var _point2:Vector2;
+	var _point:XY;
+	var _point2:XY;
 }

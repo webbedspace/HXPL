@@ -2,7 +2,7 @@ package haxepunk.input;
 
 import haxepunk.HXP;
 import haxepunk.Signal;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.input.gamepad.GamepadAxis;
 import haxepunk.input.gamepad.GamepadButton;
 import haxepunk.input.gamepad.GamepadType;
@@ -81,7 +81,7 @@ class Gamepad
 	/**
 	 * A Point containing the gamepad's hat value.
 	 */
-	public var hat:Vector2 = new Vector2();
+	public var hat:XY = new XY();
 
 	/**
 	 * A GamepadType which will be used to map inputs from this

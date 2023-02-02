@@ -6,7 +6,7 @@ import haxepunk.input.Mouse;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Random;
 import haxepunk.math.Rect;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.tweens.misc.Alarm;
 import haxepunk.tweens.misc.MultiVarTween;
 import haxepunk.utils.HaxelibInfo;
@@ -493,8 +493,8 @@ class HXP
 	public static var app:App;
 
 	// Global objects used for rendering, collision, etc.
-	@:dox(hide) public static var point:Vector2 = new Vector2();
-	@:dox(hide) public static var point2:Vector2 = new Vector2();
+	@:dox(hide) public static var point:XY = new XY();
+	@:dox(hide) public static var point2:XY = new XY();
 	@:dox(hide) public static var zeroCamera:Camera = new Camera();
 	@:dox(hide) public static var rect:Rect = new Rect();
 	@:dox(hide) public static var entity:Entity;

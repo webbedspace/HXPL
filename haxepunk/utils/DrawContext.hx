@@ -7,7 +7,7 @@ import haxepunk.Graphic;
 import haxepunk.graphics.hardware.DrawCommand;
 import haxepunk.graphics.shader.ColorShader;
 import haxepunk.graphics.shader.Shader;
-import haxepunk.math.Vector2;
+import haxepunk.math.XY;
 import haxepunk.utils.Color;
 
 class DrawContext
@@ -80,8 +80,8 @@ class DrawContext
 	public function line(x1:Float, y1:Float, x2:Float, y2:Float)
 	{
 		// create perpendicular delta vector
-		var a = new Vector2(x1, y1);
-		var b = new Vector2(x2 - a.x, y2 - a.y);
+		var a = new XY(x1, y1);
+		var b = new XY(x2 - a.x, y2 - a.y);
 		b.normalize(lineThickness / 2);
 		b.perpendicular();
 
@@ -107,14 +107,14 @@ class DrawContext
 
 		var halfThick = lineThickness / 2;
 		var last = Std.int(points.length / 2);
-		var a        = new Vector2(),
-			b        = new Vector2(),
-			pos      = new Vector2(points[0], points[1]), // current
-			prev     = new Vector2(pos.x - points[2], pos.y - points[3]), // direction
-			next     = new Vector2(prev.x, prev.y),
-			inner    = new Vector2(),
-			outer    = new Vector2(),
-			nextPrev = new Vector2();
+		var a        = new XY(),
+			b        = new XY(),
+			pos      = new XY(points[0], points[1]), // current
+			prev     = new XY(pos.x - points[2], pos.y - points[3]), // direction
+			next     = new XY(prev.x, prev.y),
+			inner    = new XY(),
+			outer    = new XY(),
+			nextPrev = new XY();
 		begin();
 
 		a.setTo(pos.x, pos.y);
@@ -280,10 +280,10 @@ class DrawContext
 		var halfThick = lineThickness / 2;
 		var innerRadius = radius - halfThick;
 		var outerRadius = radius + halfThick;
-		var inner = new Vector2(),
-			outer = new Vector2(),
-			lastOuter = new Vector2(),
-			lastInner = new Vector2();
+		var inner = new XY(),
+			outer = new XY(),
+			lastOuter = new XY(),
+			lastInner = new XY();
 
 		begin();
 
@@ -395,7 +395,7 @@ class DrawContext
 		command = scene.batch.getDrawCommand(null, shader, smooth, blend, null);
 	}
 
-	inline function drawTriangle(v1:Vector2, v2:Vector2, v3:Vector2):Void
+	inline function drawTriangle(v1:XY, v2:XY, v3:XY):Void
 	{
 		addTriangle(v1.x, v1.y, 0, 0, v2.x, v2.y, 0, 0, v3.x, v3.y, 0, 0, color, alpha);
 	}
