@@ -7,7 +7,7 @@ import haxepunk.Signal;
 import haxepunk.ds.Maybe;
 import haxepunk.graphics.atlas.TileAtlas;
 import haxepunk.math.Random;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 
 @:allow(haxepunk.graphics.Spritemap)
 class Animation

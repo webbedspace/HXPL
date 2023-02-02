@@ -8,7 +8,7 @@ import haxepunk.HXP;
 import haxepunk.assets.AssetCache;
 import haxepunk.assets.AssetLoader;
 import haxepunk.graphics.atlas.AtlasData;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 using StringTools;
 
@@ -91,7 +91,7 @@ class TextureAtlas extends Atlas
 	 *
 	 * @return	The new AtlasRegion object.
 	 */
-	public function defineRegion(name:String, rect:Rectangle, ?center:Vector2, ?page:String):AtlasRegion
+	public function defineRegion(name:String, rect:Rect, ?center:Vector2, ?page:String):AtlasRegion
 	{
 		var data = _pages == null ? this._data : _pages.get(page);
 		var region = data.createRegion(rect, center);
@@ -196,7 +196,7 @@ private class GdxTexturePacker
 				var xy:Array<Int> = [for (x in getTuple(values["xy"])) Std.parseInt(x)];
 				var size:Array<Int> = [for (x in getTuple(values["size"])) Std.parseInt(x)];
 				var rotate:Float = values["rotate"] == "true" ? -90 : 0;
-				var r:Rectangle = (rotate != 0) ? new Rectangle(xy[0], xy[1], size[1], size[0]) : new Rectangle(xy[0], xy[1], size[0], size[1]);
+				var r:Rect = (rotate != 0) ? new Rect(xy[0], xy[1], size[1], size[0]) : new Rect(xy[0], xy[1], size[0], size[1]);
 				var path:String = Path.join([inputDir, regionName + "." + extension]);
 				// TODO: rotation currently ignored; rotation is in the opposite
 				// direction of TexturePacker XML

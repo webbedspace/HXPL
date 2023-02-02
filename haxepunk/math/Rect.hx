@@ -1,7 +1,7 @@
 package haxepunk.math;
 
 @:structInit
-class Rectangle
+class Rect
 {
 	public var x:Float;
 	public var y:Float;
@@ -57,9 +57,9 @@ class Rectangle
 		this.height = height;
 	}
 
-	public function clone():Rectangle
+	public function clone():Rect
 	{
-		return new Rectangle(x, y, width, height);
+		return new Rect(x, y, width, height);
 	}
 
 	/**
@@ -73,7 +73,7 @@ class Rectangle
 	/**
 	 * Checks if the rectangle intersects another rectangle.
 	 */
-	public function intersects(other:Rectangle):Bool
+	public function intersects(other:Rect):Bool
 	{
 		return left <= other.right &&
 			other.left <= right &&
@@ -84,7 +84,7 @@ class Rectangle
 	/**
 	 * If the rectangle intersects another rectangle, it returns an overlapping rectangle. Otherwise, it returns null.
 	 */
-	public function intersection(other:Rectangle):Null<Rectangle>
+	public function intersection(other:Rect):Null<Rect>
 	{
 		var left = Math.max(left, other.left);
 		var right = Math.min(right, other.right);
@@ -93,7 +93,7 @@ class Rectangle
 
 		if (right >= left && bottom >= top)
 		{
-			return new Rectangle(left, top, right - left, bottom - y);
+			return new Rect(left, top, right - left, bottom - y);
 		}
 		else
 		{

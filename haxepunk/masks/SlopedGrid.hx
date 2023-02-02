@@ -3,7 +3,7 @@ package haxepunk.masks;
 import haxepunk.HXP;
 import haxepunk.Mask;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 
 @:enum
@@ -65,7 +65,7 @@ class SlopedGrid extends Hitbox
 		columns = Std.int(width / tileWidth);
 		rows = Std.int(height / tileHeight);
 
-		_tile = new Rectangle(0, 0, tileWidth, tileHeight);
+		_tile = new Rect(0, 0, tileWidth, tileHeight);
 		_x = x;
 		_y = y;
 		_width = width;
@@ -521,8 +521,8 @@ class SlopedGrid extends Hitbox
 	}
 
 	// Grid information.
-	var _tile:Rectangle;
-	var _rect:Rectangle;
+	var _tile:Rect;
+	var _rect:Rect;
 	var _point:Vector2;
 	var _point2:Vector2;
 

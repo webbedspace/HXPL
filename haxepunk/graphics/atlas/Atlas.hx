@@ -3,7 +3,7 @@ package haxepunk.graphics.atlas;
 import haxepunk.utils.BlendMode;
 import haxepunk.graphics.atlas.AtlasData;
 import haxepunk.graphics.shader.Shader;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.utils.Color;
 
 class Atlas
@@ -33,7 +33,7 @@ class Atlas
 	public static function loadImageAsRegion(source:AtlasDataType):AtlasRegion
 	{
 		var data:AtlasData = source;
-		return data.createRegion(new Rectangle(0, 0, data.width, data.height));
+		return data.createRegion(new Rect(0, 0, data.width, data.height));
 	}
 
 	/**
@@ -49,10 +49,10 @@ class Atlas
 	 * @param	blue	A blue tint value
 	 * @param	alpha	The tile's opacity
 	 */
-	public inline function prepareTile(rect:Rectangle, x:Float, y:Float,
+	public inline function prepareTile(rect:Rect, x:Float, y:Float,
 		scaleX:Float, scaleY:Float, angle:Float,
 		color:Color, alpha:Float,
-		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle)
+		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect)
 	{
 		_data.prepareTile(rect, x, y, scaleX, scaleY, angle, color, alpha, shader, smooth, blend, clipRect);
 	}

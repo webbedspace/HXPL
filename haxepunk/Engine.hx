@@ -5,7 +5,7 @@ import haxepunk.debug.Console;
 import haxepunk.graphics.hardware.HardwareRenderer;
 import haxepunk.input.Input;
 import haxepunk.math.Random;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.utils.Draw;
 
 /**
@@ -80,7 +80,7 @@ class Engine
 	public function new(width:Int = 0, height:Int = 0, frameRate:Float = 60, fixed:Bool = false)
 	{
 		// global game properties
-		HXP.bounds = new Rectangle(0, 0, width, height);
+		HXP.bounds = new Rect(0, 0, width, height);
 		HXP.assignedFrameRate = frameRate;
 		HXP.fixed = fixed;
 

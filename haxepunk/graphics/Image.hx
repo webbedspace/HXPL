@@ -7,7 +7,7 @@ import haxepunk.graphics.atlas.IAtlasRegion;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.utils.Color;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 
 /**
@@ -54,12 +54,12 @@ class Image extends Graphic
 	 * @param	source		Source image.
 	 * @param	clipRect	Optional rectangle defining area of the source image to draw.
 	 */
-	public function new(?source:ImageType, ?clipRect:Rectangle)
+	public function new(?source:ImageType, ?clipRect:Rect)
 	{
 		super();
 		init();
 
-		_sourceRect = new Rectangle(0, 0, 1, 1);
+		_sourceRect = new Rect(0, 0, 1, 1);
 
 		if (source != null)
 		{
@@ -230,6 +230,6 @@ class Image extends Graphic
 	override public function toString():String return '[$_class $width x $height]';
 
 	// Source and buffer information.
-	var _sourceRect:Rectangle;
+	var _sourceRect:Rect;
 	var _region:IAtlasRegion;
 }

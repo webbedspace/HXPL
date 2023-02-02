@@ -2,7 +2,7 @@ package haxepunk.graphics.hardware;
 
 import haxepunk.graphics.shader.Shader;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
 
@@ -126,7 +126,7 @@ class TriangleIterator
 @:allow(haxepunk.graphics.hardware.DrawCommandBatch)
 class DrawCommand
 {
-	public static function create(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle)
+	public static function create(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect)
 	{
 		var command:DrawCommand;
 		if (_pool != null)
@@ -168,19 +168,19 @@ class DrawCommand
 	public var texture:Texture;
 	public var smooth:Bool = false;
 	public var blend:BlendMode = BlendMode.Alpha;
-	public var clipRect:Rectangle = null;
+	public var clipRect:Rect = null;
 	#if !hxp_no_render_batch
-	public var bounds:Rectangle = new Rectangle();
+	public var bounds:Rect = new Rect();
 	#end
 	public var triangleCount(default, null):Int = 0;
-	public var visibleArea:Rectangle;
+	public var visibleArea:Rect;
 
 	function new() {}
 
 	/**
 	 * Compares values to this draw command to see if they all match. This is used by the batcher to reuse the previous draw command.
 	 */
-	public inline function match(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, clipRect:Rectangle):Bool
+	public inline function match(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, clipRect:Rect):Bool
 	{
 		// These conditions are checked as individual if statements
 		// to reduce the number of temporary variables created in hxcpp.

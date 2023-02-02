@@ -4,7 +4,7 @@ import haxepunk.HXP;
 import haxepunk.Graphic;
 import haxepunk.graphics.Image;
 import haxepunk.utils.Color;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 
 /**
@@ -102,7 +102,7 @@ class NineSlice extends Graphic
 
 	inline function getSegment(source:ImageType, x:Int, y:Int, width:Int, height:Int):Image
 	{
-		var segment = new Image(source, new Rectangle(x, y, width, height));
+		var segment = new Image(source, new Rect(x, y, width, height));
 		segment.originX = segment.originY = 0;
 		return segment;
 	}
@@ -171,6 +171,6 @@ class NineSlice extends Graphic
 	var botC:Image;
 	var botR:Image;
 
-	var _sliceRect:Rectangle = new Rectangle();
-	var _clipRect:Rectangle = new Rectangle();
+	var _sliceRect:Rect = new Rect();
+	var _clipRect:Rect = new Rect();
 }

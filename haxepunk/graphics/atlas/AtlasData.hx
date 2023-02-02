@@ -5,7 +5,7 @@ import haxepunk.graphics.shader.Shader;
 import haxepunk.graphics.hardware.DrawCommandBatch;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
@@ -61,7 +61,7 @@ class AtlasData
 	 *
 	 * @return The new AtlasRegion object.
 	 */
-	public inline function createRegion(rect:Rectangle, ?center:Vector2):AtlasRegion
+	public inline function createRegion(rect:Rect, ?center:Vector2):AtlasRegion
 	{
 		return new AtlasRegion(this, rect.clone());
 	}
@@ -81,10 +81,10 @@ class AtlasData
 	 * @param  alpha Alpha value
 	 */
 	public inline function prepareTileMatrix(
-		rect:Rectangle,
+		rect:Rect,
 		tx:Float, ty:Float, a:Float, b:Float, c:Float, d:Float,
 		color:Color, alpha:Float,
-		shader:Shader, smooth:Bool=false, blend:BlendMode, ?clipRect:Rectangle,
+		shader:Shader, smooth:Bool=false, blend:BlendMode, ?clipRect:Rect,
 		flexibleLayer:Bool = false)
 	{
 		_batch.addRect(
@@ -109,10 +109,10 @@ class AtlasData
 	 * @param  alpha  Alpha value
 	 */
 	public inline function prepareTile(
-		rect:Rectangle, tx:Float, ty:Float,
+		rect:Rect, tx:Float, ty:Float,
 		scaleX:Float, scaleY:Float, angle:Float,
 		color:Color, alpha:Float,
-		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle,
+		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect,
 		flexibleLayer:Bool = false):Void
 	{
 		var a:Float, b:Float, c:Float, d:Float;
@@ -167,7 +167,7 @@ class AtlasData
 		tx2:Float, ty2:Float, uvx2:Float, uvy2:Float,
 		tx3:Float, ty3:Float, uvx3:Float, uvy3:Float,
 		color:Color, alpha:Float,
-		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle,
+		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect,
 		flexibleLayer:Bool = false):Void
 	{
 		_batch.addTriangle(texture, shader, smooth, blend, clipRect, tx1, ty1, uvx1, uvy1, tx2, ty2, uvx2, uvy2, tx3, ty3, uvx3, uvy3, color, alpha, flexibleLayer);
@@ -178,5 +178,5 @@ class AtlasData
 
 	static var _batch:DrawCommandBatch;
 	static var _uniqueId:Int = 0; // allows for unique names
-	static var _rect:Rectangle = new Rectangle();
+	static var _rect:Rect = new Rect();
 }

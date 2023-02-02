@@ -4,7 +4,7 @@ import haxepunk.utils.BlendMode;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.utils.Color;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 
 class DrawCommandIterator
 {
@@ -44,9 +44,9 @@ class DrawCommandBatch
 {
 	public static var maxTriangleChecks:Int = 128;
 
-	static var _bounds:Rectangle = new Rectangle();
+	static var _bounds:Rect = new Rect();
 
-	public var visibleArea:Rectangle = new Rectangle();
+	public var visibleArea:Rect = new Rect();
 
 	var head = new DrawCommandIterator();
 	var last:DrawCommand;
@@ -68,7 +68,7 @@ class DrawCommandBatch
 		return head;
 	}
 
-	public function getDrawCommand(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, clipRect:Rectangle, x1:Float=0, y1:Float=0, x2:Float=0, y2:Float=0, x3:Float=0, y3:Float=0, flexibleLayer:Bool=false)
+	public function getDrawCommand(texture:Texture, shader:Shader, smooth:Bool, blend:BlendMode, clipRect:Rect, x1:Float=0, y1:Float=0, x2:Float=0, y2:Float=0, x3:Float=0, y3:Float=0, flexibleLayer:Bool=false)
 	{
 		if (last != null && last.match(texture, shader, smooth, blend, clipRect))
 		{
@@ -161,7 +161,7 @@ class DrawCommandBatch
 
 	public inline function addRect(
 		texture:Texture, shader:Shader,
-		smooth:Bool, blend:BlendMode, clipRect:Rectangle,
+		smooth:Bool, blend:BlendMode, clipRect:Rect,
 		rx:Float, ry:Float, rw:Float, rh:Float,
 		a:Float, b:Float, c:Float, d:Float,
 		tx:Float, ty:Float,
@@ -209,7 +209,7 @@ class DrawCommandBatch
 	}
 
 	public inline function addTriangle(texture:Texture, shader:Shader,
-		smooth:Bool, blend:BlendMode, clipRect:Rectangle,
+		smooth:Bool, blend:BlendMode, clipRect:Rect,
 		tx1:Float, ty1:Float, uvx1:Float, uvy1:Float,
 		tx2:Float, ty2:Float, uvx2:Float, uvy2:Float,
 		tx3:Float, ty3:Float, uvx3:Float, uvy3:Float,

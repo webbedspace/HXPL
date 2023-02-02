@@ -4,7 +4,7 @@ import haxepunk.Mask;
 import haxepunk.HXP;
 import haxepunk.assets.AssetCache;
 import haxepunk.graphics.hardware.Texture;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 
 abstract PixelmaskSource(Texture) from Texture to Texture
@@ -70,8 +70,8 @@ class Pixelmask extends Hitbox
 		_point.x = other._parent.x - other._parent.originX - (_parent.x + _x);
 		_point.y = other._parent.y - other._parent.originY - (_parent.y + _y);
 
-		var r1 = new Rectangle(0, 0, _data.width, _data.height);
-		var r2 = new Rectangle(_point.x, _point.y, other._parent.width, other._parent.height);
+		var r1 = new Rect(0, 0, _data.width, _data.height);
+		var r2 = new Rect(_point.x, _point.y, other._parent.width, other._parent.height);
 
 		var intersect = r1.intersection(r2);
 
@@ -98,8 +98,8 @@ class Pixelmask extends Hitbox
 		_point.x = other._parent.x + other._x - (_parent.x + _x);
 		_point.y = other._parent.y + other._y - (_parent.y + _y);
 
-		var r1 = new Rectangle(0, 0, _data.width, _data.height);
-		var r2 = new Rectangle(_point.x, _point.y, other.width, other.height);
+		var r1 = new Rect(0, 0, _data.width, _data.height);
+		var r2 = new Rect(_point.x, _point.y, other.width, other.height);
 
 		var intersect = r1.intersection(r2);
 
@@ -121,8 +121,8 @@ class Pixelmask extends Hitbox
 		_point.x = other._parent.x + other._x - (_parent.x + _x);
 		_point.y = other._parent.y + other._y - (_parent.y + _y);
 
-		var r1 = new Rectangle(0, 0, _data.width, _data.height);
-		var r2 = new Rectangle(_point.x, _point.y, other._data.width, other._data.height);
+		var r1 = new Rect(0, 0, _data.width, _data.height);
+		var r2 = new Rect(_point.x, _point.y, other._data.width, other._data.height);
 
 		var intersect = r1.intersection(r2);
 
@@ -167,7 +167,7 @@ class Pixelmask extends Hitbox
 	var _data:Texture;
 
 	// Global objects.
-	var _rect:Rectangle;
+	var _rect:Rect;
 	var _point:Vector2;
 	var _point2:Vector2;
 }

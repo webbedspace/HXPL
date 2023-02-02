@@ -11,7 +11,7 @@ import haxepunk.graphics.atlas.IAtlasRegion;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.graphics.shader.TextureShader;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
@@ -149,7 +149,7 @@ class Graphic
 	 * drawn.
 	 * @since 4.0.0
 	 */
-	public var clipRect:Rectangle;
+	public var clipRect:Rect;
 
 	/**
 	 * The shader to use when drawing this graphic.
@@ -227,12 +227,12 @@ class Graphic
 	 */
 	public var relative:Bool = true;
 
-	var _screenClipRect:Rectangle;
+	var _screenClipRect:Rect;
 	inline function screenClipRect(camera:Camera, x:Float, y:Float)
 	{
 		if (clipRect != null)
 		{
-			if (_screenClipRect == null) _screenClipRect = new Rectangle();
+			if (_screenClipRect == null) _screenClipRect = new Rect();
 			_screenClipRect.setTo(
 				(x + clipRect.x) * camera.screenScaleX,
 				(y + clipRect.y) * camera.screenScaleY,

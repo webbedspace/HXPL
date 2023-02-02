@@ -5,7 +5,7 @@ import haxepunk.Tween.TweenType;
 import haxepunk.input.Mouse;
 import haxepunk.math.MathUtil;
 import haxepunk.math.Random;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 import haxepunk.tweens.misc.Alarm;
 import haxepunk.tweens.misc.MultiVarTween;
@@ -76,7 +76,7 @@ class HXP
 	/**
 	 * A rectangle representing the size of the screen.
 	 */
-	public static var bounds:Rectangle;
+	public static var bounds:Rect;
 
 	/**
 	 * The default font file to use, by default: font/monofonto.ttf.
@@ -496,6 +496,6 @@ class HXP
 	@:dox(hide) public static var point:Vector2 = new Vector2();
 	@:dox(hide) public static var point2:Vector2 = new Vector2();
 	@:dox(hide) public static var zeroCamera:Camera = new Camera();
-	@:dox(hide) public static var rect:Rectangle = new Rectangle();
+	@:dox(hide) public static var rect:Rect = new Rect();
 	@:dox(hide) public static var entity:Entity;
 }

@@ -5,7 +5,7 @@ import haxepunk.Mask;
 import haxepunk.graphics.Image;
 import haxepunk.graphics.hardware.Texture;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 
 #if (lime || nme)
 import flash.geom.Point;
@@ -90,7 +90,7 @@ class Imagemask extends Pixelmask
 	 * transformation.
 	 * @return  the bound box in local coordinates.
 	 */
-	public function getBounds():Rectangle
+	public function getBounds():Rect
 	{
 		#if (lime || nme)
 		var sx = _source.scale * _source.scaleX;
@@ -113,7 +113,7 @@ class Imagemask extends Pixelmask
 		point.y = 0;
 		var p4 = matrix.transformPoint(point);
 
-		var r = new Rectangle(0, 0, 0, 0);
+		var r = new Rect(0, 0, 0, 0);
 		r.x = Math.min(Math.min(p1.x, p2.x), Math.min(p3.x, p4.x));
 		r.y = Math.min(Math.min(p1.y, p2.y), Math.min(p3.y, p4.y));
 		r.width  = Math.max(Math.max(p1.x - r.x, p2.x - r.x), Math.max(p3.x - r.x, p4.x - r.x));

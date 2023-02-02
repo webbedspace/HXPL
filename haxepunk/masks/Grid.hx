@@ -1,6 +1,6 @@
 package haxepunk.masks;
 
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.HXP;
 import haxepunk.Mask;
 import haxepunk.math.Vector2;
@@ -46,7 +46,7 @@ class Grid extends Hitbox
 		columns = Std.int(width / tileWidth);
 		rows = Std.int(height / tileHeight);
 
-		_tile = new Rectangle(0, 0, tileWidth, tileHeight);
+		_tile = new Rect(0, 0, tileWidth, tileHeight);
 		_x = x;
 		_y = y;
 		_width = width;
@@ -364,7 +364,7 @@ class Grid extends Hitbox
 			_rect.height = other.height;
 		}
 
-		var r1 = new Rectangle(_point.x, _point.y, _width, _height);
+		var r1 = new Rect(_point.x, _point.y, _width, _height);
 
 		var intersect = r1.intersection(_rect);
 
@@ -565,8 +565,8 @@ class Grid extends Hitbox
 	}
 
 	// Grid information.
-	var _tile:Rectangle;
-	var _rect:Rectangle;
+	var _tile:Rect;
+	var _rect:Rect;
 	var _point:Vector2;
 	var _point2:Vector2;
 }

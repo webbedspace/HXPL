@@ -1,6 +1,6 @@
 package haxepunk.graphics.tile;
 
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.Graphic.ImageType;
 import haxepunk.math.Vector2;
 
@@ -16,7 +16,7 @@ class TiledImage extends Image
 	 * @param	height		The height of the image (the texture will be drawn to fill this area).
 	 * @param	clipRect	An optional area of the source texture to use (eg. a tile from a tileset).
 	 */
-	public function new(texture:ImageType, width:Int = 0, height:Int = 0, ?clipRect:Rectangle)
+	public function new(texture:ImageType, width:Int = 0, height:Int = 0, ?clipRect:Rect)
 	{
 		offsetX = offsetY = 0;
 		_width = width;

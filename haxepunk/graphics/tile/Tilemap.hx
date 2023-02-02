@@ -1,6 +1,6 @@
 package haxepunk.graphics.tile;
 
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.Graphic;
 import haxepunk.graphics.atlas.TileAtlas;
 import haxepunk.masks.Grid;

@@ -4,7 +4,7 @@ import haxepunk.utils.BlendMode;
 import haxepunk.utils.Color;
 import haxepunk.graphics.shader.Shader;
 import haxepunk.math.MathUtil;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.math.Vector2;
 
 class AtlasRegion implements IAtlasRegion
@@ -28,9 +28,9 @@ class AtlasRegion implements IAtlasRegion
 	/**
 	 * Creates a new AtlasRegion
 	 * @param  parent    The AtlasData parent to use for rendering
-	 * @param  rect      Rectangle to set for width/height
+	 * @param  rect      Rect to set for width/height
 	 */
-	public function new(parent:AtlasData, rect:Rectangle)
+	public function new(parent:AtlasData, rect:Rect)
 	{
 		this._parent = parent;
 		this._rect = rect;
@@ -43,7 +43,7 @@ class AtlasRegion implements IAtlasRegion
 	 * @param	center		The new center point
 	 * @return	A new atlas region with the clipped coordinates
 	 */
-	public function clip(clipRect:Rectangle, ?center:Vector2):AtlasRegion
+	public function clip(clipRect:Rect, ?center:Vector2):AtlasRegion
 	{
 		// make a copy of clipRect, to avoid modifying the original
 		var clipRectCopy = clipRect.clone();
@@ -81,7 +81,7 @@ class AtlasRegion implements IAtlasRegion
 	public inline function draw(x:Float, y:Float,
 		scaleX:Float=1, scaleY:Float=1, angle:Float=0,
 		color:Color=Color.White, alpha:Float=1,
-		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle, flexibleLayer:Bool = false)
+		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect, flexibleLayer:Bool = false)
 	{
 		if (rotated) angle = angle + 90;
 
@@ -110,7 +110,7 @@ class AtlasRegion implements IAtlasRegion
 	 */
 	public inline function drawMatrix(tx:Float, ty:Float, a:Float, b:Float, c:Float, d:Float,
 		color:Color=Color.White, alpha:Float=1,
-		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rectangle,
+		shader:Shader, smooth:Bool, blend:BlendMode, ?clipRect:Rect,
 		flexibleLayer:Bool = false):Void
 	{
 		if (rotated)
@@ -147,6 +147,6 @@ class AtlasRegion implements IAtlasRegion
 	inline function get_width():Int return Std.int(_rect.width);
 	inline function get_height():Int return Std.int(_rect.height);
 
-	var _rect:Rectangle;
+	var _rect:Rect;
 	var _parent:AtlasData;
 }

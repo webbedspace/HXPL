@@ -2,7 +2,7 @@ package haxepunk.debug;
 
 import haxepunk.utils.BlendMode;
 import haxepunk.math.Vector2;
-import haxepunk.math.Rectangle;
+import haxepunk.math.Rect;
 import haxepunk.HXP;
 import haxepunk.cameras.UICamera;
 import haxepunk.graphics.Image;
@@ -79,7 +79,7 @@ class Console extends Scene
 	var _t:Float = 0;
 
 	var click:Vector2 = new Vector2();
-	var selBox:Rectangle = new Rectangle();
+	var selBox:Rect = new Rect();
 	var clickActive:Bool = false;
 	var dragging:Bool = false;
 	var panning:Bool = false;

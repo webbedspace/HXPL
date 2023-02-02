@@ -663,7 +663,7 @@ class Entity extends Tweener
 
 	/**
 	 * Sets the Entity's hitbox to match that of the provided object.
-	 * @param	o		The object defining the hitbox (eg. an Image or Rectangle).
+	 * @param	o		The object defining the hitbox (eg. an Image or Rect).
 	 */
 	public function setHitboxTo(o:Dynamic)
 	{
