@@ -232,4 +232,8 @@ abstract XY(Position) from Position to Position
 	{
 		return new XY(this.x, this.y);
 	}
+
+	public inline function between(other:XY, percent = 0.5) {
+		return new XY(MathUtil.lerp(this.x, other.x, percent), MathUtil.lerp(this.y, other.y, percent));
+	}
 }
