@@ -1,5 +1,5 @@
 package haxepunk.math;
-import haxe.ds.*;
+import haxepunk.ds.*;
 import haxepunk.math.*;
 using haxepunk.math.MathUtil;
 
@@ -59,7 +59,7 @@ class Line {
 		return new Line(this.x1, this.y1, Math.cos(angle) * this.distance + this.x1, Math.sin(angle) * this.distance + this.y1);
 	}
 
-	public function collideLine(other:Line): Option<XY> {
+	public function collideLine(other:Line): Maybe<XY> {
 		// Bourke 89
 		var denom =
 			(other.y2 - other.y1)*(this.x2 - this.x1) -
@@ -72,12 +72,12 @@ class Line {
 			( this.y2 - this.y1) * (this.x1 - other.x1)) / denom;
 
 		if (denom != 0 && unknownA >= 0 && unknownA <= 1 && unknownB >= 0 && unknownB <= 1) {
-			return Some(new XY(
+			return new XY(
 				this.x1 + unknownA * (this.x2 - this.x1),
 				this.y1 + unknownA * (this.y2 - this.y1)
-			));
+			);
 		}
-		return None;
+		return null;
 	}
 
 	public inline function str() {
