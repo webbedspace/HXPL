@@ -3,12 +3,11 @@ package haxepunk;
 import haxe.ds.Either.Left;
 import haxe.ds.Either.Right;
 import haxepunk.Signal.Signal0;
-import haxepunk.ds.OneOf;
 import haxepunk.graphics.Graphiclist;
 import haxepunk.math.MathUtil;
 import haxepunk.math.XY;
 
-typedef SolidType = OneOf<String, Array<String>>;
+typedef SolidType = Array<String>;
 
 /**
  * Main game Entity class updated by `Scene`.
@@ -299,17 +298,11 @@ class Entity extends Tweener
 	 */
 	public function collideTypes(types:SolidType, x:Float, y:Float):Entity
 	{
-		switch (types)
+		var e:Entity;
+		for (type in types)
 		{
-			case Left(s):
-				return collide(s, x, y);
-			case Right(a):
-				var e:Entity;
-				for (type in a)
-				{
-					e = collide(type, x, y);
-					if (e != null) return e;
-				}
+			e = collide(type, x, y);
+			if (e != null) return e;
 		}
 
 		return null;
