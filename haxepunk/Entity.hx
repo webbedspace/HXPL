@@ -20,6 +20,15 @@ class Entity extends Tweener
 	 */
 	public var parent:Null<Entity>;
 
+	// Remove parent while retaining position, by Leon
+	public function decouple() {
+		var _x = x;
+		var _y = y;
+		parent = null;
+		x = _x;
+		y = _y;
+	}
+
 	public var camera(default, set):Null<Camera> = null;
 	function set_camera(v:Camera) return camera = v;
 
