@@ -1,7 +1,5 @@
 package haxepunk;
 
-import haxe.ds.Either.Left;
-import haxe.ds.Either.Right;
 import haxepunk.Signal.Signal0;
 import haxepunk.graphics.Graphiclist;
 import haxepunk.math.MathUtil;

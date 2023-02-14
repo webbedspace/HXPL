@@ -283,11 +283,6 @@ class Console extends Scene
 		logPanel.log(data);
 	}
 
-	public inline function watch(properties:Array<Dynamic>)
-	{
-		// TODO
-	}
-
 	function toggleDebugDraw()
 	{
 		debugDraw = !debugDraw;
