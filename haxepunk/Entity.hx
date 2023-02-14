@@ -256,6 +256,11 @@ class Entity extends Tweener
 		Mask.drawContext.circle((x - camera.x) * camera.screenScaleX, (y - camera.y) * camera.screenScaleY, 3, 8);
 	}
 
+	// Higher-level collide by Leon
+	public inline function collide(type:String, p:XY) {
+		return this.collide2(type, p.x, p.y);
+	}
+
 	/**
 	 * Checks for a collision against an Entity type.
 	 * @param	type		The Entity type to check for.
@@ -263,12 +268,12 @@ class Entity extends Tweener
 	 * @param	y			Virtual y position to place this Entity.
 	 * @return	The first Entity collided with, or null if none were collided.
 	 */
-	public function collide(type:String, x:Float, y:Float):Entity
+	public function collide2(type:String, x:Float, y:Float):Entity
 	{
-		if (_scene == null) return null;
+		if (_scene == null || !collidable) return null;
 
 		var entities = _scene.entitiesForType(type);
-		if (!collidable || entities == null) return null;
+		if (entities == null) return null;
 
 		_x = this.x; _y = this.y;
 		this.x = x; this.y = y;
@@ -330,7 +335,7 @@ class Entity extends Tweener
 		var e:Entity;
 		for (type in types)
 		{
-			e = collide(type, x, y);
+			e = collide2(type, x, y);
 			if (e != null) return e;
 		}
 
