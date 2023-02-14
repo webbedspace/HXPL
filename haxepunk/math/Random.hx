@@ -46,6 +46,13 @@ class Random
 		return Std.int(random * amount);
 	}
 
+	// Returns a pseudo-random value, by Leon
+	public static function choose<T>(vals:Array<T>):T
+	{
+		var s = Std.int(random * vals.length);
+		return vals[s < vals.length ? s : 0];
+	}
+
 	// Pseudo-random number generation (the seed is set in Engine's contructor).
 	static var _seed:Int = 0;
 }
