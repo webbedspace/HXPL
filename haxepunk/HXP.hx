@@ -100,16 +100,6 @@ class HXP
 	public static var focused:Bool = false;
 
 	/**
-	 * Half the screen width.
-	 */
-	public static var halfWidth(default, null):Float;
-
-	/**
-	 * Half the screen height.
-	 */
-	public static var halfHeight(default, null):Float;
-
-	/**
 	 * Defines the allowed orientations
 	 */
 	public static var orientations:Array<Int> = [];
@@ -186,8 +176,6 @@ class HXP
 		HXP.windowWidth = width;
 		HXP.windowHeight = height;
 		HXP.screen.resize(width, height);
-		HXP.halfWidth = HXP.width / 2;
-		HXP.halfHeight = HXP.height / 2;
 		HXP.bounds.width = width;
 		HXP.bounds.height = height;
 		for (scene in HXP.engine) scene._resize();

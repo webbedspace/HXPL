@@ -764,6 +764,11 @@ class Entity extends Tweener
 		return _class;
 	}
 
+	// Higher-level moveBy by Leon
+	public inline function moveBy(pos:XY, ?solidType:SolidType, sweep:Bool = false) {
+		return moveBy2(pos.x, pos.y, solidType, sweep);
+	}
+
 	/**
 	 * Moves the Entity by the amount, retaining integer values for its x and y.
 	 * @param	x			Horizontal offset.
@@ -771,7 +776,7 @@ class Entity extends Tweener
 	 * @param	solidType	An optional collision type to stop flush against upon collision.
 	 * @param	sweep		If sweeping should be used (prevents fast-moving objects from going through solidType).
 	 */
-	public function moveBy(x:Float, y:Float, ?solidType:SolidType, sweep:Bool = false):Void
+	public function moveBy2(x:Float, y:Float, ?solidType:SolidType, sweep:Bool = false):Void
 	{
 		_moveX += x;
 		_moveY += y;
@@ -833,34 +838,20 @@ class Entity extends Tweener
 	}
 
 	/**
-	 * Moves the Entity to the position, retaining integer values for its x and y.
-	 * @param	x			X position.
-	 * @param	y			Y position.
-	 * @param	solidType	An optional collision type to stop flush against upon collision.
-	 * @param	sweep		If sweeping should be used (prevents fast-moving objects from going through solidType).
-	 */
-	public inline function moveTo(x:Float, y:Float, ?solidType:SolidType, sweep:Bool = false)
-	{
-		moveBy(x - this.x, y - this.y, solidType, sweep);
-	}
-
-	/**
 	 * Moves towards the target position, retaining integer values for its x and y.
-	 * @param	x			X target.
-	 * @param	y			Y target.
+	 * @param	pos			Target.
 	 * @param	amount		Amount to move.
 	 * @param	solidType	An optional collision type to stop flush against upon collision.
 	 * @param	sweep		If sweeping should be used (prevents fast-moving objects from going through solidType).
 	 */
-	public inline function moveTowards(x:Float, y:Float, amount:Float, ?solidType:SolidType, sweep:Bool = false)
-	{
-		_point.x = x - this.x;
-		_point.y = y - this.y;
+	public inline function moveTo(pos:XY, amount:Float = 1, ?solidType:SolidType, sweep:Bool = false) {
+		_point.x = pos.x - this.x;
+		_point.y = pos.y - this.y;
 		if (_point.dot(_point) > amount * amount)
 		{
 			_point.normalize(amount);
 		}
-		moveBy(_point.x, _point.y, solidType, sweep);
+		moveBy(_point, solidType, sweep);
 	}
 
 	/**
@@ -873,7 +864,7 @@ class Entity extends Tweener
 	public inline function moveAtAngle(angle:Float, amount:Float, ?solidType:SolidType, sweep:Bool = false):Void
 	{
 		angle *= MathUtil.RAD;
-		moveBy(Math.cos(angle) * amount, Math.sin(angle) * amount, solidType, sweep);
+		moveBy2(Math.cos(angle) * amount, Math.sin(angle) * amount, solidType, sweep);
 	}
 
 	/**
