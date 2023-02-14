@@ -166,7 +166,8 @@ abstract Key(Int) from Int to Int
 		}
 	}
 
-	public static inline function define(input:InputType, keys:Array<Key>)
+	// Can't be inline due to null safety
+	public static function define(input:InputType, keys:Array<Key>)
 	{
 		// undefine any pre-existing key mappings
 		if (_control.exists(input))

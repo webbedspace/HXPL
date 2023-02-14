@@ -98,35 +98,35 @@ class Rect {
 	}
 
 	public var ul(get, never):XY;
-	inline function get_ul()
+	public inline function get_ul()
 		return new XY(this.left, this.top);
 
 	public var ur(get, never):XY;
-	inline function get_ur()
+	public inline function get_ur()
 		return new XY(this.right, this.top);
 
 	public var dl(get, never):XY;
-	inline function get_dl()
+	public inline function get_dl()
 		return new XY(this.left, this.bottom);
 
 	public var dr(get, never):XY;
-	inline function get_dr()
+	public inline function get_dr()
 		return new XY(this.right, this.bottom);
 
 	public var topLine(get, never):Line;
-	inline function get_topLine()
+	public inline function get_topLine()
 		return new Line(this.left, this.top, this.right, this.top);
 
 	public var bottomLine(get, never):Line;
-	inline function get_bottomLine()
+	public inline function get_bottomLine()
 		return new Line(this.left, this.bottom, this.right, this.bottom);
 
 	public var leftLine(get, never):Line;
-	inline function get_leftLine()
+	public inline function get_leftLine()
 		return new Line(this.left, this.top, this.left, this.bottom);
 
 	public var rightLine(get, never):Line;
-	inline function get_rightLine()
+	public inline function get_rightLine()
 		return new Line(this.right, this.top, this.right, this.bottom);
 
 	public inline function toStr() {

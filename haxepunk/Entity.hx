@@ -1,7 +1,7 @@
 package haxepunk;
 
 import haxepunk.Signal.Signal0;
-import haxepunk.graphics.Graphiclist;
+import haxepunk.graphics.GraphicList;
 import haxepunk.math.*;
 
 typedef SolidType = Array<String>;
@@ -114,6 +114,24 @@ class Entity extends Tweener
 	@:isVar public var height(get, set):Int = 0;
 	function get_height() return height;
 	function set_height(h:Int) return height = h;
+
+	// High-level way to set pos, by Leon
+	public inline function set_pos(pos:XY) {
+		this.x = pos.x;
+		this.y = pos.y;
+	}
+
+	// High-level way to set hitbox width and height, by Leon
+	public inline function set_area(area:XY) {
+		width = Math.floor(area.x);
+		height = Math.floor(area.y);
+	}
+
+	// High-level way to set both of the above, by Leon
+	public inline function set_pos_area(pos:XY, area:XY) {
+		set_pos(pos);
+		set_area(area);
+	}
 
 	/**
 	 * X origin of the Entity's hitbox.
@@ -625,13 +643,13 @@ class Entity extends Tweener
 		{
 			graphic = g;
 		}
-		else if (Std.isOfType(graphic, Graphiclist))
+		else if (Std.isOfType(graphic, GraphicList))
 		{
-			cast(graphic, Graphiclist).add(g);
+			cast(graphic, GraphicList).add(g);
 		}
 		else
 		{
-			var list:Graphiclist = new Graphiclist();
+			var list = new GraphicList();
 			list.add(graphic);
 			list.add(g);
 			graphic = list;
@@ -932,9 +950,12 @@ class Entity extends Tweener
 	}
 
 	// Entity information.
+	// This string is used for entity recycling (memory mgmt)
 	var _class:String;
-	var _scene:Scene;
+	// The entity's SolidType
 	var _type:String;
+	// The scene this belongs to.
+	var _scene:Scene;
 	var _layer:Int = 0;
 	var _name:String;
 	var _frames:Int = -1;

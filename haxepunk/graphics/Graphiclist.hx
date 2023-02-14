@@ -9,7 +9,7 @@ import haxepunk.math.XY;
  * A Graphic that can contain multiple Graphics of one or various types.
  * Useful for drawing sprites with multiple different parts, etc.
  */
-typedef Graphiclist = BaseGraphicList<Graphic>;
+typedef GraphicList = BaseGraphicList<Graphic>;
 
 @:generic class BaseGraphicList<T:Graphic> extends Graphic
 {

@@ -11,11 +11,11 @@ class ColoredRect extends Graphic
 	public var width:Float;
 	public var height:Float;
 
-	public function new(width:Float, height:Float, color:Color = Color.White, alpha:Float = 1)
+	public function new(dim:XY, color:Color = Color.White, alpha:Float = 1)
 	{
 		super();
-		this.width = width;
-		this.height = height;
+		this.width = dim.x;
+		this.height = dim.y;
 		this.color = color;
 		this.alpha = alpha;
 		this.shader = ColorShader.defaultShader;
