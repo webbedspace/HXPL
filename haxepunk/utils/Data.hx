@@ -5,7 +5,7 @@ package haxepunk.utils;
  */
 class Data
 {
-	public static var PREFIX:String = "HaxePunk";
+	public static var PREFIX:String = "HXPL";
 
 	/**
 	 * If you want to share data between different SWFs on the same host, use this id.

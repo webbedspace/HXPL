@@ -365,9 +365,9 @@ class Scene extends Tweener
 	 * @param	layer		Layer of the Entity.
 	 * @return	The Entity that was added.
 	 */
-	public function addGraphic(graphic:Graphic, layer:Int = 0, x:Float = 0, y:Float = 0):Entity
+	public function addGraphic(graphic:Graphic, layer:Int = 0, ?pos:XY):Entity
 	{
-		var e:Entity = new Entity(x, y, graphic);
+		var e:Entity = new Entity(pos, graphic);
 		e.layer = layer;
 		e.active = false;
 		return add(e);
@@ -381,9 +381,9 @@ class Scene extends Tweener
 	 * @param	y		Y position of the Entity.
 	 * @return	The Entity that was added.
 	 */
-	public function addMask(mask:Mask, type:String, x:Int = 0, y:Int = 0):Entity
+	public function addMask(mask:Mask, type:String, ?pos:XY):Entity
 	{
-		var e:Entity = new Entity(x, y, null, mask);
+		var e:Entity = new Entity(pos, null, mask);
 		if (type != "") e.type = type;
 		e.active = e.visible = false;
 		return add(e);
@@ -544,13 +544,13 @@ class Scene extends Tweener
 	 * @param	rHeight		Height of the rectangle.
 	 * @return	The first Entity to collide, or null if none collide.
 	 */
-	public function collideRect(type:String, rX:Float, rY:Float, rWidth:Float, rHeight:Float):Entity
+	public function collideRect2(type:String, rX:Float, rY:Float, rWidth:Float, rHeight:Float):Entity
 	{
 		if (_types.exists(type))
 		{
 			for (e in _types.get(type))
 			{
-				if (e.collidable && e.collideRect(e.x, e.y, rX, rY, rWidth, rHeight)) return e;
+				if (e.collidable && e.collideRect2(e.x, e.y, rX, rY, rWidth, rHeight)) return e;
 			}
 		}
 		return null;
@@ -571,7 +571,7 @@ class Scene extends Tweener
 			for (e in _types.get(type))
 			{
 				// only look for entities that collide
-				if (e.collidable && e.collidePoint(e.x, e.y, pX, pY))
+				if (e.collidable && e.collidePoint2(e.x, e.y, pX, pY))
 				{
 					// the first one might be the front one
 					if (result == null)
@@ -736,7 +736,7 @@ class Scene extends Tweener
 		{
 			for (e in _types.get(type))
 			{
-				if (e.collidable && e.collideRect(e.x, e.y, rX, rY, rWidth, rHeight)) into[n++] = cast e;
+				if (e.collidable && e.collideRect2(e.x, e.y, rX, rY, rWidth, rHeight)) into[n++] = cast e;
 			}
 		}
 	}
@@ -782,11 +782,11 @@ class Scene extends Tweener
 				{
 					var px = (pX + e.camera.x - camera.x) * camera.fullScaleX / e.camera.fullScaleX,
 						py = (pY + e.camera.y - camera.y) * camera.fullScaleY / e.camera.fullScaleY;
-					if (e.collidePoint(e.x, e.y, px, py)) into[n++] = cast e;
+					if (e.collidePoint2(e.x, e.y, px, py)) into[n++] = cast e;
 				}
 				else
 				{
-					if (e.collidePoint(e.x, e.y, pX, pY)) into[n++] = cast e;
+					if (e.collidePoint2(e.x, e.y, pX, pY)) into[n++] = cast e;
 				}
 			}
 		}

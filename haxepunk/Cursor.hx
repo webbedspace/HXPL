@@ -14,7 +14,7 @@ class Cursor extends Entity
 	{
 		var img:Image = new Image(image);
 		img.smooth = true;
-		super(0, 0, img);
+		super(null, img);
 	}
 
 	/**

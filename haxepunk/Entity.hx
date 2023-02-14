@@ -2,8 +2,7 @@ package haxepunk;
 
 import haxepunk.Signal.Signal0;
 import haxepunk.graphics.Graphiclist;
-import haxepunk.math.MathUtil;
-import haxepunk.math.XY;
+import haxepunk.math.*;
 
 typedef SolidType = Array<String>;
 
@@ -138,11 +137,11 @@ class Entity extends Tweener
 	 * @param	graphic		Graphic to assign to the Entity.
 	 * @param	mask		Mask to assign to the Entity.
 	 */
-	public function new(x:Float = 0, y:Float = 0, ?graphic:Graphic, ?mask:Mask)
+	public function new(?pos:XY, ?graphic:Graphic, ?mask:Mask)
 	{
 		super();
-		this.x = x;
-		this.y = y;
+		this.x = (pos != null) ? pos.x : 0;
+		this.y = (pos != null) ? pos.y : 0;
 
 		originX = originY = 0;
 		width = height = 0;
@@ -287,6 +286,11 @@ class Entity extends Tweener
 		return null;
 	}
 
+	// Higher-level collideTypes by Leon
+	public inline function collideTypes(types:SolidType, p:XY) {
+		return this.collideTypes2(types, p.x, p.y);
+	}
+
 	/**
 	 * Checks for collision against multiple Entity types.
 	 * @param	types		An Array or Vector of Entity types to check for.
@@ -294,7 +298,7 @@ class Entity extends Tweener
 	 * @param	y			Virtual y position to place this Entity.
 	 * @return	The first Entity collided with, or null if none were collided.
 	 */
-	public function collideTypes(types:SolidType, x:Float, y:Float):Entity
+	public function collideTypes2(types:SolidType, x:Float, y:Float):Entity
 	{
 		var e:Entity;
 		for (type in types)
@@ -344,6 +348,11 @@ class Entity extends Tweener
 		return null;
 	}
 
+	// Higher-level collideRect by Leon
+	public function collideRect(p:XY, r:Rect) {
+		return this.collideRect2(p.x, p.y, r.x, r.y, r.width, r.height);
+	}
+
 	/**
 	 * Checks if this Entity overlaps the specified rectangle.
 	 * @param	x			Virtual x position to place this Entity.
@@ -354,7 +363,7 @@ class Entity extends Tweener
 	 * @param	rHeight		Height of the rectangle.
 	 * @return	If they overlap.
 	 */
-	public function collideRect(x:Float, y:Float, rX:Float, rY:Float, rWidth:Float, rHeight:Float):Bool
+	public function collideRect2(x:Float, y:Float, rX:Float, rY:Float, rWidth:Float, rHeight:Float):Bool
 	{
 		if (x - originX + width >= rX &&
 			y - originY + height >= rY &&
@@ -379,6 +388,11 @@ class Entity extends Tweener
 		return false;
 	}
 
+	// Higher-level collidePoint by Leon
+	public inline function collidePoint(p:XY, q:XY) {
+		return this.collidePoint2(p.x, p.y, q.x, q.y);
+	}
+
 	/**
 	 * Checks if this Entity overlaps the specified position.
 	 * @param	x			Virtual x position to place this Entity.
@@ -387,7 +401,7 @@ class Entity extends Tweener
 	 * @param	pY			Y position.
 	 * @return	If the Entity intersects with the position.
 	 */
-	public function collidePoint(x:Float, y:Float, pX:Float, pY:Float):Bool
+	public function collidePoint2(x:Float, y:Float, pX:Float, pY:Float):Bool
 	{
 		if (pX >= x - originX &&
 			pY >= y - originY &&
@@ -488,28 +502,16 @@ class Entity extends Tweener
 	}
 
 	/**
-	 * Half the Entity's width.
-	 */
-	public var halfWidth(get, null):Float;
-	inline function get_halfWidth():Float return width / 2;
-
-	/**
-	 * Half the Entity's height.
-	 */
-	public var halfHeight(get, null):Float;
-	inline function get_halfHeight():Float return height / 2;
-
-	/**
 	 * The center x position of the Entity's hitbox.
 	 */
 	public var centerX(get, null):Float;
-	inline function get_centerX():Float return left + halfWidth;
+	inline function get_centerX():Float return left + width/2;
 
 	/**
 	 * The center y position of the Entity's hitbox.
 	 */
 	public var centerY(get, null):Float;
-	inline function get_centerY():Float return top + halfHeight;
+	inline function get_centerY():Float return top + height/2;
 
 	/**
 	 * The leftmost position of the Entity's hitbox.
@@ -711,8 +713,8 @@ class Entity extends Tweener
 	 */
 	public inline function centerOrigin()
 	{
-		originX = Std.int(halfWidth);
-		originY = Std.int(halfHeight);
+		originX = Std.int(width/2);
+		originY = Std.int(height/2);
 	}
 
 	/**
@@ -782,12 +784,12 @@ class Entity extends Tweener
 			var sign:Int, e:Entity;
 			if (x != 0)
 			{
-				if (collidable && (sweep || collideTypes(solidType, this.x + x, this.y) != null))
+				if (collidable && (sweep || collideTypes2(solidType, this.x + x, this.y) != null))
 				{
 					sign = x > 0 ? 1 : -1;
 					while (x != 0)
 					{
-						if ((e = collideTypes(solidType, this.x + sign, this.y)) != null)
+						if ((e = collideTypes2(solidType, this.x + sign, this.y)) != null)
 						{
 							if (moveCollideX(e)) break;
 							else this.x += sign;
@@ -803,12 +805,12 @@ class Entity extends Tweener
 			}
 			if (y != 0)
 			{
-				if (collidable && (sweep || collideTypes(solidType, this.x, this.y + y) != null))
+				if (collidable && (sweep || collideTypes2(solidType, this.x, this.y + y) != null))
 				{
 					sign = y > 0 ? 1 : -1;
 					while (y != 0)
 					{
-						if ((e = collideTypes(solidType, this.x, this.y + sign)) != null)
+						if ((e = collideTypes2(solidType, this.x, this.y + sign)) != null)
 						{
 							if (moveCollideY(e)) break;
 							else this.y += sign;
@@ -933,8 +935,8 @@ class Entity extends Tweener
 	{
 		if (graphic != null)
 		{
-			graphic.x = halfWidth;
-			graphic.y = halfHeight;
+			graphic.x = width/2;
+			graphic.y = height/2;
 		}
 	}
 

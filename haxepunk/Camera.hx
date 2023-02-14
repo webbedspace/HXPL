@@ -88,7 +88,7 @@ class Camera
 
 	public function onCamera(entity:Entity):Bool
 	{
-		return entity.collideRect(entity.x, entity.y, x, y, HXP.width, HXP.height);
+		return entity.collideRect2(entity.x, entity.y, x, y, HXP.width, HXP.height);
 	}
 
 	/**
