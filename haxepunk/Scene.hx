@@ -492,30 +492,6 @@ class Scene extends Tweener
 	}
 
 	/**
-	 * Shifts the Entity one place towards the front of its contained layer.
-	 * @param	e		The Entity to shift.
-	 * @return	If the Entity changed position.
-	 */
-	public function bringForward(e:Entity):Bool
-	{
-		if (e._scene != this) return false;
-		// TODO: implement bringForward
-		return true;
-	}
-
-	/**
-	 * Shifts the Entity one place towards the back of its contained layer.
-	 * @param	e		The Entity to shift.
-	 * @return	If the Entity changed position.
-	 */
-	public function sendBackward(e:Entity):Bool
-	{
-		if (e._scene != this) return false;
-		// TODO: implement sendBackward
-		return true;
-	}
-
-	/**
 	 * If the Entity as at the front of its layer.
 	 * @param	e		The Entity to check.
 	 * @return	True or false.

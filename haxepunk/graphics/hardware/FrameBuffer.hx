@@ -5,7 +5,6 @@ import haxepunk.graphics.hardware.opengl.GLFramebuffer;
 import haxepunk.graphics.hardware.opengl.GLTexture;
 import haxepunk.graphics.hardware.opengl.GLUtils;
 
-@:dox(hide)
 class FrameBuffer
 {
 	public var texture:GLTexture;

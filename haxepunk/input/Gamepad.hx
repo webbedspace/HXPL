@@ -93,7 +93,6 @@ class Gamepad
 	/**
 	 * Creates and initializes a new Gamepad.
 	 */
-	@:dox(hide)
 	function new(id:Int)
 	{
 		this.id = id;
@@ -104,7 +103,6 @@ class Gamepad
 	/**
 	 * Updates the gamepad's state.
 	 */
-	@:dox(hide)
 	public function postUpdate():Void
 	{
 		for (button in _allButtons)

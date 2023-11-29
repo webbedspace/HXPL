@@ -40,7 +40,6 @@ class NumTween extends Tween
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		value = _start + _range * _t;

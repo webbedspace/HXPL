@@ -7,7 +7,6 @@ import haxe.Json;
 import haxe.io.Path;
 #end
 
-@:dox(hide)
 class HaxelibInfoBuilder
 {
 	macro public static function build():Array<Field>

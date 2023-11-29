@@ -39,7 +39,6 @@ class DrawCommandIterator
 	}
 }
 
-@:dox(hide)
 class DrawCommandBatch
 {
 	public static var maxTriangleChecks:Int = 128;

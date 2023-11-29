@@ -131,16 +131,18 @@ class Mouse
 		#end
 	}
 
-	public static inline function define(input:InputType, button:MouseButton)
+	// Can't be inline due to null safety
+	public static function define(input:InputType, button:MouseButton)
 	{
 		// undefine any pre-existing key mappings
-		if (_control.exists(input))
-		{
+		if (_control.exists(input)) {
 			_buttonMap[button].remove(input);
 		}
 		_control.set(input, button);
 		if (!_buttonMap.exists(button)) _buttonMap[button] = new Array();
-		if (_buttonMap[button].indexOf(input) < 0) _buttonMap[button].push(input);
+		if (_buttonMap[button].indexOf(input) < 0) {
+			_buttonMap[button].push(input);
+		}
 	}
 
 	public static function checkInput(input:InputType)

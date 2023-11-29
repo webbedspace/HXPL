@@ -3,6 +3,16 @@ import haxepunk.ds.*;
 import haxepunk.math.*;
 using haxepunk.math.MathUtil;
 
+/*
+	Can be used by games as a simple 4-direction enum.
+*/
+enum Ortho {
+	Up;
+	Left;
+	Down;
+	Right;
+}
+
 @:structInit
 class Line {
 	public var x1:Float;
@@ -78,6 +88,11 @@ class Line {
 			);
 		}
 		return null;
+	}
+
+	public function snapAngle(lim = 90) {
+		var newAngle = Math.round(this.angle / lim) * lim;
+		return new Line(this.x1, this.y1, Math.cos(newAngle) * this.distance + this.x1, Math.sin(newAngle) * this.distance + this.y1);
 	}
 
 	public inline function str() {

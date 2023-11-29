@@ -27,7 +27,6 @@ class TiledImage extends Image
 	}
 
 	/** Renders the image. */
-	@:dox(hide)
 	override public function render(point:XY, camera:Camera)
 	{
 		// determine drawing location

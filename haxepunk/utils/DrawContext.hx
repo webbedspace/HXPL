@@ -1,9 +1,7 @@
 package haxepunk.utils;
 
 import haxepunk.utils.BlendMode;
-import haxepunk.Entity;
 import haxepunk.HXP;
-import haxepunk.Graphic;
 import haxepunk.graphics.hardware.DrawCommand;
 import haxepunk.graphics.shader.ColorShader;
 import haxepunk.graphics.shader.Shader;

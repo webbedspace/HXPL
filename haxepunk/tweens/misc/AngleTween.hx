@@ -45,7 +45,6 @@ class AngleTween extends Tween
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		angle = (_start + _range * _t) % 360;

@@ -26,7 +26,6 @@ class TiledSpritemap extends Spritemap
 	}
 
 	/** Renders the image. */
-	@:dox(hide)
 	override public function render(point:XY, camera:Camera)
 	{
 		// determine drawing location
@@ -56,7 +55,6 @@ class TiledSpritemap extends Spritemap
 	}
 
 	/** Renders the image. */
-	@:dox(hide)
 	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		// determine drawing location

@@ -352,7 +352,6 @@ class Polygon extends Hitbox
 	}
 
 	/** Projects this polygon points on axis and returns min and max values in projection object. */
-	@:dox(hide)
 	override public function project(axis:XY, projection:Projection):Void
 	{
 		var p:XY = _points[0];
@@ -378,7 +377,6 @@ class Polygon extends Hitbox
 		projection.max = max;
 	}
 
-	@:dox(hide)
 	override public function debugDraw(camera:Camera):Void
 	{
 		var offsetX:Float = _parent.x + _x - camera.x,
@@ -438,7 +436,6 @@ class Polygon extends Hitbox
 	}
 
 	/** Updates the parent's bounds for this mask. */
-	@:dox(hide)
 	override public function update():Void
 	{
 		project(horizontal, firstProj); // width
@@ -624,8 +621,6 @@ class Polygon extends Hitbox
 	static var firstProj = new Projection();
 	static var secondProj = new Projection();
 
-	@:dox(hide)
 	public static var vertical = new XY(0, 1);
-	@:dox(hide)
 	public static var horizontal = new XY(1, 0);
 }

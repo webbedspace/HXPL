@@ -82,7 +82,6 @@ class Tween
 	/**
 	 * Updates the Tween, called by World.
 	 */
-	@:dox(hide)
 	public function update(elapsed:Float)
 	{
 		var isFinished = false;

@@ -122,7 +122,6 @@ class TriangleIterator
  * calls for the same texture, target and parameters. Based on work by
  * @Beeblerox.
  */
-@:dox(hide)
 @:allow(haxepunk.graphics.hardware.DrawCommandBatch)
 class DrawCommand
 {

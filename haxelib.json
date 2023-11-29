@@ -6,10 +6,5 @@
 	"description": "A Haxe port of the FlashPunk AS3 engine.",
 	"version": "4.0.2",
 	"releasenote": "See CHANGELOG.md",
-	"contributors": ["heardtheword", "_ibilon", "bendmorris", "matrefeytontias"],
-	"install": {
-		"munit": "",
-		"openfl": "8.9.1",
-		"lime": "7.6.3"
-	}
+	"contributors": ["heardtheword", "_ibilon", "bendmorris", "matrefeytontias"]
 }

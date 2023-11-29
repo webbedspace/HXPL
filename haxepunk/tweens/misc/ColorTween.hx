@@ -76,7 +76,6 @@ class ColorTween extends Tween
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		alpha = _startA + _rangeA * _t;

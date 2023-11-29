@@ -63,7 +63,6 @@ class QuadPath extends Motion
 	}
 
 	/** @private Starts the Tween. */
-	@:dox(hide)
 	override public function start()
 	{
 		_index = 0;
@@ -71,7 +70,6 @@ class QuadPath extends Motion
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		if (_index < _curve.length - 1)

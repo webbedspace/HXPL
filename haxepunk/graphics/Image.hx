@@ -88,7 +88,6 @@ class Image extends Graphic
 		color = 0xFFFFFF;
 	}
 
-	@:dox(hide)
 	override public function render(point:XY, camera:Camera)
 	{
 		var sx = scale * scaleX * (flipX ? -1 : 1),

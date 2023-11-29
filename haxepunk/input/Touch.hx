@@ -113,7 +113,6 @@ class Touch
 	/**
 	 * Updates the touch state.
 	 */
-	@:dox(hide)
 	function updateTouch()
 	{
 		time += HXP.elapsed;

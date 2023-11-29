@@ -381,7 +381,6 @@ class SlopedGrid extends Hitbox
 		return collideBox(ox, oy, other._width, other._height, x, y);
 	}
 
-	@:dox(hide)
 	override public function debugDraw(camera:Camera):Void
 	{
 		var dc = Mask.drawContext,

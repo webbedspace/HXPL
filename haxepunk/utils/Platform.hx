@@ -3,7 +3,6 @@ package haxepunk.utils;
 #if macro
 import haxe.macro.Context;
 
-@:dox(hide)
 class Platform
 {
 	static function run()

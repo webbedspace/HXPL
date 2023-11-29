@@ -477,7 +477,6 @@ class Grid extends Hitbox
 		return false;
 	}
 
-	@:dox(hide)
 	override public function debugDraw(camera:Camera):Void
 	{
 		var dc = Mask.drawContext,
@@ -549,7 +548,6 @@ class Grid extends Hitbox
 		}
 	}
 
-	@:dox(hide)
 	public function squareProjection(axis:XY, point:XY):Void
 	{
 		if (axis.x < axis.y)

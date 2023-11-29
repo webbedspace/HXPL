@@ -42,7 +42,4 @@ class Sfx
 	{
 		return false;
 	}
-
-	// TODO: This function needs to be removed!
-	public static function onGlobalUpdated(updatePan:Bool) {}
 }

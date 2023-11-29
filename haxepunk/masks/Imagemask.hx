@@ -68,7 +68,6 @@ class Imagemask extends Pixelmask
 	/**
 	 * Updates mask.
 	 */
-	@:dox(hide)
 	override public function update()
 	{
 		var r = getBounds();

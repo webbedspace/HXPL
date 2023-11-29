@@ -5,7 +5,6 @@ import haxepunk.utils.Color;
 /**
  * Used by the BaseEmitter class to track an existing Particle.
  */
-@:dox(hide)
 @:allow(haxepunk.graphics.emitter.BaseEmitter)
 @:access(haxepunk.graphics.emitter.ParticleType)
 class Particle

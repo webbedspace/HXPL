@@ -4,7 +4,6 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 using StringTools;
 
-@:dox(hide)
 class ControllerData
 {
 	macro public static function getMap()

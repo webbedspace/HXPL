@@ -128,7 +128,6 @@ class Spritemap extends Image
 	}
 
 	/** @private Updates the animation. */
-	@:dox(hide)
 	override public function update()
 	{
 		currentAnimation.may(function(anim) {

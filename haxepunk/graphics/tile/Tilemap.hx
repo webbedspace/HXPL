@@ -367,7 +367,6 @@ class Tilemap extends Graphic
 		originY = height * 0.5;
 	}
 
-	@:dox(hide)
 	override public function render(point:XY, camera:Camera)
 	{
 		var fullScaleX:Float = camera.screenScaleX,
@@ -421,7 +420,6 @@ class Tilemap extends Graphic
 		}
 	}
 
-	@:dox(hide)
 	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		var fullScaleX:Float = camera.screenScaleX,

@@ -125,7 +125,6 @@ class Input
 	/**
 	 * Updates the input states
 	 */
-	@:dox(hide)
 	public static function update()
 	{
 		for (handler in handlers) handler.update();

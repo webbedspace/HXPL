@@ -89,14 +89,11 @@ class Mask
 	/**
 	 * Override this
 	 */
-	@:dox(hide)
 	public function debugDraw(camera:Camera):Void {}
 
 	/** Updates the parent's bounds for this mask. */
-	@:dox(hide)
 	public function update() {}
 
-	@:dox(hide)
 	public function project(axis:XY, projection:Projection):Void
 	{
 		var cur:Float,

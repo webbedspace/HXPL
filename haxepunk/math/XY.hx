@@ -27,7 +27,7 @@ abstract XY(Position) from Position to Position
 		this = { x:x, y:y };
 	}
 	
-	@:dox(hide) @:from public static inline function fromObj(obj:PositionObj)
+	@:from public static inline function fromObj(obj:PositionObj)
 	{
 		return new XY(obj.x, obj.y);
 	}

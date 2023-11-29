@@ -55,7 +55,6 @@ class Backdrop extends Graphic
 		originY = _height * 0.5;
 	}
 
-	@:dox(hide)
 	override public function render(point:XY, camera:Camera)
 	{
 		_point.x = (point.x - camera.x * scrollX + x) * camera.screenScaleX - originX * scaleX * scale;
@@ -96,7 +95,6 @@ class Backdrop extends Graphic
 		}
 	}
 
-	@:dox(hide)
 	override public function pixelPerfectRender(point:XY, camera:Camera)
 	{
 		var fsx = camera.screenScaleX,

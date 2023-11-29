@@ -11,7 +11,6 @@ import haxepunk.utils.BlendMode;
  * OpenGL-based renderer. Based on work by @Yanrishatum and @Beeblerox.
  * @since	2.6.0
  */
-@:dox(hide)
 @:access(haxepunk.Scene)
 @:access(haxepunk.Engine)
 class HardwareRenderer

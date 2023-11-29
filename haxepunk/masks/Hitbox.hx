@@ -115,7 +115,6 @@ class Hitbox extends Mask
 	}
 
 	/** Updates the parent's bounds for this mask. */
-	@:dox(hide)
 	override public function update()
 	{
 		if (parent != null)
@@ -131,7 +130,6 @@ class Hitbox extends Mask
 		}
 	}
 
-	@:dox(hide)
 	override public function debugDraw(camera:Camera):Void
 	{
 		if (parent != null)
@@ -143,7 +141,6 @@ class Hitbox extends Mask
 		}
 	}
 
-	@:dox(hide)
 	override public function project(axis:XY, projection:Projection):Void
 	{
 		var px = _x;

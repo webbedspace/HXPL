@@ -36,7 +36,6 @@ class Fader extends Tween
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		HXP.volume = _start + _range * _t;

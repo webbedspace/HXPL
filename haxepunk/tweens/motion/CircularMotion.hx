@@ -64,7 +64,6 @@ class CircularMotion extends Motion
 	}
 
 	/** @private Updates the Tween. */
-	@:dox(hide)
 	override function updateInternal()
 	{
 		angle = _angleStart + _angleFinish * _t;

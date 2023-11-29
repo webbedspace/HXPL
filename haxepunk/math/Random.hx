@@ -53,6 +53,19 @@ class Random
 		return vals[s < vals.length ? s : 0];
 	}
 
+	// In-place shuffle
+	public static function shuffle<T>(arr:Array<T>):Array<T>
+	{
+		for (i in 0...arr.length) {
+			var j = randInt(arr.length - 1);
+			var a = arr[i];
+			var b = arr[j];
+			arr[i] = b;
+			arr[j] = a;
+		}
+		return arr;
+	}
+
 	// Pseudo-random number generation (the seed is set in Engine's contructor).
 	static var _seed:Int = 0;
 }

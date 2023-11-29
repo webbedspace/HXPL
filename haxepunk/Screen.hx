@@ -25,7 +25,6 @@ class Screen
 	/**
 	 * Resizes the screen.
 	 */
-	@:dox(hide)
 	@:allow(haxepunk.HXP)
 	function resize(width:Int, height:Int)
 	{

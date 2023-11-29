@@ -50,7 +50,6 @@ typedef GraphicList = BaseGraphicList<Graphic>;
 	}
 
 	/** @private Updates the graphics in the list. */
-	@:dox(hide)
 	override public function update()
 	{
 		for (g in _graphics)

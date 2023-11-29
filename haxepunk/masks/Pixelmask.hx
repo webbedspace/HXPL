@@ -9,7 +9,7 @@ import haxepunk.math.XY;
 
 abstract PixelmaskSource(Texture) from Texture to Texture
 {
-	@:dox(hide) @:from public static inline function fromString(source:String):PixelmaskSource
+	@:from public static inline function fromString(source:String):PixelmaskSource
 	{
 		return AssetCache.global.getTexture(source);
 	}

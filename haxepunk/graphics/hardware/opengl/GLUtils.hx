@@ -2,7 +2,6 @@ package haxepunk.graphics.hardware.opengl;
 
 import haxe.PosInfos;
 
-@:dox(hide)
 class GLUtils
 {
 	public static function bindTexture(texture:Texture, smooth:Bool, index:Int=GL.TEXTURE0)

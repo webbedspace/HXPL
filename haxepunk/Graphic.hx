@@ -23,15 +23,15 @@ import haxepunk.utils.Color;
  */
 abstract TileType(TileAtlas) from TileAtlas to TileAtlas
 {
-	@:dox(hide) @:from public static inline function fromString(tileset:String):TileType
+	@:from public static inline function fromString(tileset:String):TileType
 	{
 		return AssetCache.global.getTileAtlas(tileset, false);
 	}
-	@:dox(hide) @:from public static inline function fromTileAtlas(atlas:TileAtlas):TileType
+	@:from public static inline function fromTileAtlas(atlas:TileAtlas):TileType
 	{
 		return atlas;
 	}
-	@:dox(hide) @:from public static inline function fromTexture(bd:Texture):TileType
+	@:from public static inline function fromTexture(bd:Texture):TileType
 	{
 		return new TileAtlas(bd);
 	}
@@ -45,28 +45,28 @@ abstract TileType(TileAtlas) from TileAtlas to TileAtlas
 @:forward(width, height)
 abstract ImageType(IAtlasRegion) from IAtlasRegion to IAtlasRegion
 {
-	@:dox(hide) @:from public static inline function fromString(s:String):ImageType
+	@:from public static inline function fromString(s:String):ImageType
 	{
 		var region = AssetCache.global.getAtlasRegion(s, false);
 		return region;
 	}
-	@:dox(hide) @:from public static inline function fromTileAtlas(atlas:TileAtlas):ImageType
+	@:from public static inline function fromTileAtlas(atlas:TileAtlas):ImageType
 	{
 		return atlas.getRegion(0);
 	}
-	@:dox(hide) @:from public static inline function fromAtlasRegion(region:IAtlasRegion):ImageType
+	@:from public static inline function fromAtlasRegion(region:IAtlasRegion):ImageType
 	{
 		return region;
 	}
-	@:dox(hide) @:from public static inline function fromTexture(bd:Texture):ImageType
+	@:from public static inline function fromTexture(bd:Texture):ImageType
 	{
 		return Atlas.loadImageAsRegion(bd);
 	}
-	@:dox(hide) @:from public static inline function fromStrings(v:Array<String>):ImageType
+	@:from public static inline function fromStrings(v:Array<String>):ImageType
 	{
 		return new AtlasResolutions([for (image in v) Atlas.loadImageAsRegion(image)]);
 	}
-	@:dox(hide) @:from public static inline function fromAtlasRegions(v:Array<AtlasRegion>):ImageType
+	@:from public static inline function fromAtlasRegions(v:Array<AtlasRegion>):ImageType
 	{
 		return new AtlasResolutions(v);
 	}
@@ -77,7 +77,6 @@ abstract ImageType(IAtlasRegion) from IAtlasRegion to IAtlasRegion
  *
  * Conversion is automatic, no need to use this.
  */
-@:dox(hide)
 abstract ImageOrTileType(Either<ImageType, TileType>) from Either<ImageType, TileType>
 {
 	@:from public static inline function fromString(tileset:String):ImageOrTileType
@@ -269,7 +268,6 @@ class Graphic
 	/**
 	 * Updates the graphic.
 	 */
-	@:dox(hide)
 	public function update() {}
 
 	/**
@@ -288,7 +286,6 @@ class Graphic
 	 * @param  point      The position to draw the graphic.
 	 * @param  camera     The camera offset.
 	 */
-	@:dox(hide)
 	public function doRender(point:XY, camera:Camera)
 	{
 		if (isPixelPerfect(camera)) pixelPerfectRender(point, camera);
@@ -300,7 +297,6 @@ class Graphic
 	 * @param  point      The position to draw the graphic.
 	 * @param  camera     The camera offset.
 	 */
-	@:dox(hide)
 	public function render(point:XY, camera:Camera) {}
 
 	/**

@@ -244,14 +244,12 @@ class Circle extends Hitbox
 		return distanceToCorner <= _squaredRadius;
 	}
 
-	@:dox(hide)
 	override public function project(axis:XY, projection:Projection):Void
 	{
 		projection.min = -_radius;
 		projection.max = _radius;
 	}
 
-	@:dox(hide)
 	override public function debugDraw(camera:Camera):Void
 	{
 		Mask.drawContext.lineThickness = 2;
@@ -281,7 +279,6 @@ class Circle extends Hitbox
 	}
 
 	/** Updates the parent's bounds for this mask. */
-	@:dox(hide)
 	override public function update()
 	{
 		if (parent != null)
